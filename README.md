@@ -7,7 +7,7 @@ Link for dataset: https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset/
 
 Link for the OtakuViz app: 
 
-<h2>Table of Contents</h2> <br />
+<h2>Table of Contents</h2> 
 1. Features <br />
 2. Usefulness to Users and Stakeholders <br />
 3. Example Scenarios <br />
@@ -19,7 +19,7 @@ Link for the OtakuViz app:
 9. Contributing <br />
 10. License <br />
 
-<h3>Features</h3> <br />
+<h3>Features</h3> 
 <b>1. Data Visualization:</b> <br />
     * Visualize anime data by genre, type, status, source, and rating. <br />
     * Different plot types: bar plots, line plots, and pie charts. <br />
@@ -34,16 +34,17 @@ Link for the OtakuViz app:
     
 <h3>Usefulness to Users and Stakeholders</h3>
 
-Users
-Anime Fans:
-* Discover New Anime: Users can get personalized recommendations based on their favorite genres and types.
-    * Example: A user who loves action and adventure anime can find new titles matching these genres.
-Students and Researchers:
-* Data Analysis: Provides tools to visualize and analyze trends in anime data for research purposes.
-    * Example: A student studying the popularity trends of different anime genres over time can use the data visualization features.
-Content Creators:
-* Content Planning: Helps content creators understand what type of anime is currently popular or award-winning.
-    * Example: A YouTuber creating anime review videos can identify trending anime to review next.
+<h4>Users</h4>
+<b>Anime Fans:</b> <br />
+* Discover New Anime: Users can get personalized recommendations based on their favorite genres and types.<br />
+    * Example: A user who loves action and adventure anime can find new titles matching these genres.<br />
+Students and Researchers:<br />
+* Data Analysis: Provides tools to visualize and analyze trends in anime data for research purposes.<br />
+    * Example: A student studying the popularity trends of different anime genres over time can use the data visualization features.<br />
+Content Creators:<br />
+* Content Planning: Helps content creators understand what type of anime is currently popular or award-winning.<br />
+    * Example: A YouTuber creating anime review videos can identify trending anime to review next.<br />
+    
 Stakeholders
 Anime Production Companies:
 * Market Research: Analyze viewer preferences and trends to make informed decisions about future productions.
