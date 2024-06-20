@@ -7,30 +7,30 @@ Link for dataset: https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset/
 
 Link for the OtakuViz app: 
 
-<h2>Table of Contents</h2>
-1. Features
-2. Usefulness to Users and Stakeholders
-3. Example Scenarios
-4. Tools Used
-5. Algorithms Description
-6. Setup and Installation
-7. Usage
-8. Evaluation Metrics
-9. Contributing
-10. License
+<h2>Table of Contents</h2> <br />
+1. Features <br />
+2. Usefulness to Users and Stakeholders <br />
+3. Example Scenarios <br />
+4. Tools Used <br />
+5. Algorithms Description <br />
+6. Setup and Installation <br />
+7. Usage <br />
+8. Evaluation Metrics <br />
+9. Contributing <br />
+10. License <br />
 
-<h3>Features</h3>
-<b>1. Data Visualization:</b>
-    * Visualize anime data by genre, type, status, source, and rating.
-    * Different plot types: bar plots, line plots, and pie charts.
-<b>2. Additional Analysis:</b>b>
-    * Insights and analysis on various aspects of anime data.
-<b>3. Recommendation System:</b>
-    * Get anime recommendations based on selected genres and types.
-<b>4. Text-Based Recommendation:</b>
-    * Find anime recommendations based on synopsis similarity using cosine similarity.
-<b>5. Score Prediction:</b>
-    * Predict the score of an anime based on attributes like favorites, members, award-winning status, episodes, and duration.
+<h3>Features</h3> <br />
+<b>1. Data Visualization:</b> <br />
+    * Visualize anime data by genre, type, status, source, and rating. <br />
+    * Different plot types: bar plots, line plots, and pie charts. <br />
+<b>2. Additional Analysis:</b> <br />
+    * Insights and analysis on various aspects of anime data. <br />
+<b>3. Recommendation System:</b> <br />
+    * Get anime recommendations based on selected genres and types. <br />
+<b>4. Text-Based Recommendation:</b> <br />
+    * Find anime recommendations based on synopsis similarity using cosine similarity. <br />
+<b>5. Score Prediction:</b> <br />
+    * Predict the score of an anime based on attributes like favorites, members, award-winning status, episodes, and duration. <br />
     
 <h3>Usefulness to Users and Stakeholders</h3>
 
