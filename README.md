@@ -109,13 +109,15 @@ Content Creators:<br />
 <b>Score Prediction</b> <br />
 1. Enter values for Favorites, Members, Award Winning, Episodes, and Duration. <br />
 2. The application predicts and displays the expected score for the anime. <br />
-<b>Evaluation Metrics</b> <br />
 
+<h3>Evaluation Metrics</h3>
 <b>The performance of the score prediction model is evaluated using:</b> <br />
 * Root Mean Squared Error (RMSE): Measures the square root of the average squared differences between predicted and actual scores. <br />
 * Mean Absolute Error (MAE): Measures the average absolute differences between predicted and actual scores. <br />
 
 <h3>Ethical Concerns</h3>
 <b>Privacy and Data Handling:</b> OtakuViz uses publicly available anime data for analysis and recommendations. However, privacy concerns may arise if users' personal information or preferences are linked with their usage data. We ensure that only anonymized data is used for analysis to protect user privacy. <br />
+
 <b>Bias and Fairness:</b> The recommendation system in OtakuViz relies on algorithms that may exhibit bias based on the data they are trained on. Efforts have been made to mitigate bias, but users should be aware that algorithmic recommendations may not always be fair or inclusive. <br />
+
 <b>Algorithmic Accountability:</b> While algorithms power many features in OtakuViz, they are not infallible. There is ongoing work to ensure that algorithms used in the app are accountable, transparent, and continuously improved to minimize unintended consequences.
