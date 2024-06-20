@@ -1,7 +1,13 @@
 # OtakuViz: Explore Anime Insights
 
-OtakuViz is a powerful and interactive web application designed to provide comprehensive insights into the anime world. Built with Streamlit, OtakuViz offers data visualization, anime recommendations, and score predictions to help users discover and explore anime content more effectively. This README file outlines the features of OtakuViz, its usefulness to different users, tools used, algorithms description, setup instructions, and more.
-Table of Contents
+OtakuViz is an interactive web application designed to provide comprehensive insights into the anime world. Built with Streamlit, OtakuViz offers data visualization, anime recommendations, and score predictions to help users discover and explore anime content more effectively. This README file outlines the features of OtakuViz, its usefulness to different users, tools used, algorithms description, setup instructions, and more.
+
+The data used in the TonksGuard Web App is extracted from a dataset in Kaggle which contains information about homicide incidents.
+Link for dataset: https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset/data?select=anime-dataset-2023.csv
+
+Link for the OtakuViz app: 
+
+<h2>Table of Contents</h2>
 1. Features
 2. Usefulness to Users and Stakeholders
 3. Example Scenarios
@@ -12,19 +18,22 @@ Table of Contents
 8. Evaluation Metrics
 9. Contributing
 10. License
-Features
-1. Data Visualization:
+
+<h3>Features</h3>
+<b>1. Data Visualization:</b>
     * Visualize anime data by genre, type, status, source, and rating.
     * Different plot types: bar plots, line plots, and pie charts.
-2. Additional Analysis:
+<b>2. Additional Analysis:</b>b>
     * Insights and analysis on various aspects of anime data.
-3. Recommendation System:
+<b>3. Recommendation System:</b>
     * Get anime recommendations based on selected genres and types.
-4. Text-Based Recommendation:
+<b>4. Text-Based Recommendation:</b>
     * Find anime recommendations based on synopsis similarity using cosine similarity.
-5. Score Prediction:
+<b>5. Score Prediction:</b>
     * Predict the score of an anime based on attributes like favorites, members, award-winning status, episodes, and duration.
-Usefulness to Users and Stakeholders
+    
+<h3>Usefulness to Users and Stakeholders</h3>
+
 Users
 Anime Fans:
 * Discover New Anime: Users can get personalized recommendations based on their favorite genres and types.
