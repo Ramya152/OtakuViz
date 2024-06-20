@@ -112,8 +112,8 @@ Content Creators:<br />
 
 <h3>Evaluation Metrics</h3>
 <b>The performance of the score prediction model is evaluated using:</b> <br />
-* Root Mean Squared Error (RMSE): Measures the square root of the average squared differences between predicted and actual scores. <br />
-* Mean Absolute Error (MAE): Measures the average absolute differences between predicted and actual scores. <br />
+<b>* Root Mean Squared Error (RMSE):</b> Measures the square root of the average squared differences between predicted and actual scores. <br />
+<b>* Mean Absolute Error (MAE):</b> Measures the average absolute differences between predicted and actual scores. <br />
 
 <h3>Ethical Concerns</h3>
 <b>Privacy and Data Handling:</b> OtakuViz uses publicly available anime data for analysis and recommendations. However, privacy concerns may arise if users' personal information or preferences are linked with their usage data. We ensure that only anonymized data is used for analysis to protect user privacy. <br />
