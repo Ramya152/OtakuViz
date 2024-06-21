@@ -107,7 +107,7 @@ class OtakuVizApp:
     def run(self):
         st.title('OtakuViz: Explore Anime Insights')
         st.sidebar.title("Navigation")
-        page = st.sidebar.radio("Go to", ("Data Visualization", "Additional Analysis", "Recommendation", "Text-Based Recommendation", "Score Prediction"))
+        page = st.sidebar.radio("Go to", ("Data Visualization", "Recommendation", "Text-Based Recommendation", "Score Prediction"))
 
         if page == "Data Visualization":
             self.data_visualization_page()
