@@ -56,17 +56,17 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
     
 <h3>Example Scenarios</h3>
 <b>1. Anime Fan:</b> <br />
-    * Scenario: An anime fan named Alex wants to find new anime similar to "Naruto". <br />
-    * Action: Alex uses the Text-Based Recommendation feature, selects "Naruto", and receives a list of similar anime recommendations. <br />
+    * Scenario: An anime fan named Ramya wants to find new anime similar to "Naruto". <br />
+    * Action: Ramya uses the Text-Based Recommendation feature, selects "Naruto", and receives a list of similar anime recommendations. <br />
 <b>2. Student/Researcher:</b> <br />
-    * Scenario: A student named Jamie is conducting research on the evolution of anime genres. <br />
-    * Action: Jamie uses the Data Visualization feature to create line plots showing the popularity of different genres over the years. <br />
+    * Scenario: A student is conducting research on the evolution of anime genres. <br />
+    * Action: She/He can use the Data Visualization feature to create line plots showing the popularity of different genres over the years. <br />
 <b>3. Content Creator:</b> <br />
-    * Scenario: A YouTuber named Sam needs ideas for the next anime review video. <br />
-    * Action: Sam uses the Recommendation System to find trending anime in the "Fantasy" genre and chooses one to review. <br />
+    * Scenario: A YouTuber needs ideas for the next anime review video. <br />
+    * Action: She/He can use the Recommendation System to find trending anime in the "Fantasy" genre and chooses one to review. <br />
 <b>4. Production Company:</b> <br />
-    * Scenario: A production company executive named Kim wants to know which types of anime have high scores. <br />
-    * Action: Kim uses the Score Prediction feature to analyze attributes of high-scoring anime and guides the production team accordingly. <br />
+    * Scenario: A production company wants to know which types of anime have high scores. <br />
+    * Action: The company can use the Score Prediction feature to analyze attributes of high-scoring anime and guides the production team accordingly. <br />
     
 <h3>Tools Used</h3>
 * Streamlit: Framework for building and deploying the web application interface.<br />
