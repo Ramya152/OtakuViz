@@ -17,6 +17,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 import boto3
 from botocore.config import Config
 # Function to preprocess data
+@st.cache_data
 def preprocess_data(df):
     columns_to_drop = ['Premiered', 'English name', 'Other name', 'Producers', 'Licensors', 'Studios', 'Image URL']
     df.drop(columns=columns_to_drop, inplace=True)
