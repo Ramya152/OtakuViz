@@ -17,6 +17,9 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 import boto3
 from botocore.config import Config
 
+# Download NLTK stopwords
+nltk.download('stopwords')
+nltk.download('punkt')
 # Load environment variables
 load_dotenv()
 
