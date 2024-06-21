@@ -6,7 +6,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import streamlit as st
-import nltk
 from dotenv import load_dotenv
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -17,10 +16,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 import boto3
 from botocore.config import Config
-
-# Download NLTK stopwords
-nltk.download('stopwords')
-nltk.download('punkt')
+from PreprocessData import preprocess_data
+from TextProcessing import remove_punctuation_and_turn_lower
+from TextProcessing import string_cleaning
+from TextProcessing import preprocess_synopsis
+from TextProcessing import calculate_similarity
 # Load environment variables
 load_dotenv()
 
@@ -42,52 +42,6 @@ class B2:
         obj = self.bucket.Object(remote_path)
         df = pd.read_csv(obj.get()['Body'])
         return df
-
-# Function to preprocess data
-def preprocess_data(df):
-    columns_to_drop = ['Premiered', 'English name', 'Other name', 'Producers', 'Licensors', 'Studios', 'Image URL']
-    df.drop(columns=columns_to_drop, inplace=True)
-    df = df[(df['Rating'] != 'UNKNOWN') & (df['Episodes'] != 'UNKNOWN') & (df['Rank'] != 'UNKNOWN') & 
-            (df['Type'] != 'UNKNOWN') & (df['Genres'] != 'UNKNOWN') & (df['Duration'] != 'Unknown') & 
-            (df['Source'] != 'Unknown') & (df['Score'] != 'UNKNOWN')].copy()
-    df['Award Winning'] = df['Genres'].apply(lambda x: "Yes" if "Award Winning" in x else "No")
-    df['Genres'] = df['Genres'].str.replace(",? Award Winning,?", "", regex=True)
-    df['Episodes'] = pd.to_numeric(df['Episodes'], errors='coerce')
-    df['Score'] = pd.to_numeric(df['Score'], errors='coerce')
-    df['Type'] = df['Type'].astype('category')
-    df['Status'] = df['Status'].astype('category').str.strip().str.lower().replace({
-        'finished airing': 'finished',
-        'currently airing': 'ongoing',
-        'not yet aired': 'upcoming'
-    })
-    df['Aired'] = pd.to_datetime(df['Aired'], errors='coerce')
-    return df
-
-# Text preprocessing functions
-def remove_punctuation_and_turn_lower(text):
-    translator = str.maketrans('', '', string.punctuation)
-    return (text.translate(translator)).lower()
-
-def string_cleaning(string_list):
-    strings_limpas = [remove_punctuation_and_turn_lower(string) for string in string_list]
-    strings_limpas_no_numbers = [re.sub(r'\d', '', string) for string in strings_limpas]
-    new_list = [item for item in strings_limpas_no_numbers if item]
-    tokens_without_sw = [word for word in new_list if not word in stopwords.words('english')]
-    ps = PorterStemmer()
-    steemed_words = [ps.stem(w) for w in tokens_without_sw]
-    return steemed_words
-
-def preprocess_synopsis(df):
-    df['Synopsis'] = df['Synopsis'].apply(lambda x: x.split() if isinstance(x, str) else [])
-    df['Synopsis_cleaned'] = df['Synopsis'].apply(string_cleaning)
-    df['Synopsis_cleaned_text'] = df['Synopsis_cleaned'].apply(lambda x: ' '.join(x))
-    vectorizer = CountVectorizer(ngram_range=(1, 1), max_features=5000)
-    df['Synopsis_vectorized'] = list(vectorizer.fit_transform(df['Synopsis_cleaned_text']).toarray())
-    return df
-
-def calculate_similarity(df):
-    similarities = cosine_similarity(df['Synopsis_vectorized'].tolist())
-    return similarities
 
 def get_anime_recommendation(df, similarities, name):
     index = df.index[df['Name'] == name].tolist()[0]
@@ -227,14 +181,22 @@ class OtakuVizApp:
     def recommendation_page(self):
         st.header("Anime Recommendation System")
         st.write("Get anime recommendations based on genre and type.")
+    
+        # Split genres into individual values and get unique genres
         genre_list = self.df['Genres'].str.split(', ').explode().unique()
+    
+        # Select genres
         genre_choice = st.multiselect("Select Genre(s):", genre_list)
+    
+        # Select type
         type_list = self.df['Type'].unique()
         type_choice = st.selectbox("Select Type:", type_list)
 
         if genre_choice and type_choice:
-            recommended_anime = self.df[(self.df['Genres'].apply(lambda x: any(genre in x for genre in genre_choice))) & (self.df['Type'] == type_choice)]
+            # Filter dataframe to include anime that have all selected genres and the selected type
+            recommended_anime = self.df[self.df['Genres'].apply(lambda x: all(genre in x for genre in genre_choice)) & (self.df['Type'] == type_choice)]
             st.write(recommended_anime[['Name', 'Genres', 'Type', 'Score']])
+
 
     def text_based_recommendation_page(self):
         st.header("Text-Based Recommendation")
@@ -265,10 +227,6 @@ class OtakuVizApp:
         })
         predicted_score = self.model.predict(input_data)
         st.write(f"Predicted Score: {predicted_score[0]:.2f}")
-
-        st.sidebar.markdown("## Evaluation Metrics")
-        st.sidebar.write(f"Root Mean Squared Error: {self.rmse:.2f}")
-        st.sidebar.write(f"Mean Absolute Error: {self.mae:.2f}")
 
 if __name__ == "__main__":
     app = OtakuVizApp()
