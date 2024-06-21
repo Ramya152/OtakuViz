@@ -1,6 +1,6 @@
 # OtakuViz: Explore Anime Insights
 
-OtakuViz is an interactive web application designed to provide comprehensive insights into the anime world. Built with Streamlit, OtakuViz offers data visualization, anime recommendations, and score predictions to help users discover and explore anime content more effectively. This README file outlines the features of OtakuViz, its usefulness to different users, tools used, algorithms description, setup instructions, and more.
+OtakuViz is an interactive web application designed to provide comprehensive insights into the anime world. Built with Streamlit, OtakuViz offers data visualization, anime recommendations, and score predictions to help users discover and explore anime content more effectively. This README file outlines the features of OtakuViz, its usefulness to different users, tools used, algorithms description, and more.
 
 The data used in the TonksGuard Web App is extracted from a dataset in Kaggle which contains information about homicide incidents.
 Link for dataset: https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset/data?select=anime-dataset-2023.csv
