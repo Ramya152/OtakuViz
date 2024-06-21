@@ -173,8 +173,8 @@ class OtakuVizApp:
 
         elif plot_type == "Pie Chart":
             plt.figure(figsize=(10, 6))
-            filtered_df[selected_parameter].value_counts().plot.pie(autopct='%1.1f%%')
-            plt.title(f"Distribution of {selected_parameter}")
+            filtered_df[selected_value].value_counts().plot.pie(autopct='%1.1f%%')
+            plt.title(f"Distribution of {selected_value}")
             st.pyplot(plt)
 
     def recommendation_page(self):
