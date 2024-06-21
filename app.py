@@ -174,10 +174,6 @@ class OtakuVizApp:
             plt.title(f"Distribution of {selected_parameter}")
             st.pyplot(plt)
 
-    def additional_analysis_page(self):
-        st.header("Additional Analysis")
-        st.write("Additional analysis details here.")
-
     def recommendation_page(self):
         st.header("Anime Recommendation System")
         st.write("Get anime recommendations based on genre and type.")
