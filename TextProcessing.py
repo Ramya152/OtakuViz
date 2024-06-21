@@ -30,6 +30,7 @@ def string_cleaning(string_list):
     steemed_words = [ps.stem(w) for w in tokens_without_sw]
     return steemed_words
 
+@st.cache_data
 def preprocess_synopsis(df):
     df['Synopsis'] = df['Synopsis'].apply(lambda x: x.split() if isinstance(x, str) else [])
     df['Synopsis_cleaned'] = df['Synopsis'].apply(string_cleaning)
@@ -37,7 +38,8 @@ def preprocess_synopsis(df):
     vectorizer = CountVectorizer(ngram_range=(1, 1), max_features=5000)
     df['Synopsis_vectorized'] = list(vectorizer.fit_transform(df['Synopsis_cleaned_text']).toarray())
     return df
-
+    
+@st.cache_data
 def calculate_similarity(df):
     similarities = cosine_similarity(df['Synopsis_vectorized'].tolist())
     return similarities
