@@ -1,9 +1,9 @@
-streamlit
 numpy
 pandas
+seaborn
+matplotlib
+streamlit
+python-dotenv
 nltk
 scikit-learn
-matplotlib
-seaborn
-dotenv
-bootstrap
+boto3
