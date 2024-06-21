@@ -99,6 +99,7 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
 2. Choose a specific value for the selected parameter. <br />
 3. Select the plot type (Bar Plot, Line Plot, Pie Chart). <br />
 4. The application displays the plot based on your selections. <br />
+<br />
 
 <b>Recommendation System</b> <br />
 1. Select genres and types for which you want recommendations. <br />
