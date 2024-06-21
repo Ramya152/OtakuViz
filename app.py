@@ -116,8 +116,6 @@ class OtakuVizApp:
 
         if page == "Data Visualization":
             self.data_visualization_page()
-        elif page == "Additional Analysis":
-            self.additional_analysis_page()
         elif page == "Recommendation":
             self.recommendation_page()
         elif page == "Text-Based Recommendation":
