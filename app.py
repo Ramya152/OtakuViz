@@ -23,11 +23,7 @@ from TextProcessing import string_cleaning
 from TextProcessing import preprocess_synopsis
 from TextProcessing import calculate_similarity
 
-# Set NLTK data path
-nltk.data.path.append('/Users/ramyaamudapakula/nltk_data/corpora/stopwords')
-
-# Ensure stopwords are loaded
-stop_words = set(stopwords.words('english'))
+nltk.download('stopwords')
 
 # Load environment variables
 load_dotenv()
