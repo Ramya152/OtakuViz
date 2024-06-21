@@ -65,6 +65,7 @@ def preprocess_duration(df):
     df['Duration'].fillna(df['Duration'].median(), inplace=True)
     return df
 
+@st.cache_data
 def preprocess_for_modeling(df):
     df_model = df.copy()
     df_model['Award Winning'] = df_model['Award Winning'].apply(lambda x: 1 if x == 'Yes' else 0)
