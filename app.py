@@ -7,6 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import streamlit as st
 from dotenv import load_dotenv
+import nltk 
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
