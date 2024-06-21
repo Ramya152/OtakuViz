@@ -36,10 +36,10 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
 <b>Anime Fans:</b> <br />
 * Discover New Anime: Users can get personalized recommendations based on their favorite genres and types.<br />
     * Example: A user who loves action and adventure anime can find new titles matching these genres.<br />
-Students and Researchers:<br />
+<b>Students and Researchers:</b><br />
 * Data Analysis: Provides tools to visualize and analyze trends in anime data for research purposes.<br />
     * Example: A student studying the popularity trends of different anime genres over time can use the data visualization features.<br />
-Content Creators:<br />
+<b>Content Creators:</b><br />
 * Content Planning: Helps content creators understand what type of anime is currently popular or award-winning.<br />
     * Example: A YouTuber creating anime review videos can identify trending anime to review next.<br />
     
