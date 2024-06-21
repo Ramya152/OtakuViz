@@ -21,6 +21,9 @@ from TextProcessing import remove_punctuation_and_turn_lower
 from TextProcessing import string_cleaning
 from TextProcessing import preprocess_synopsis
 from TextProcessing import calculate_similarity
+
+nltk.download('stopwords')
+
 # Load environment variables
 load_dotenv()
 
