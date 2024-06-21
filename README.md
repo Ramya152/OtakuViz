@@ -5,7 +5,7 @@ OtakuViz is an interactive web application designed to provide comprehensive ins
 The data used in the TonksGuard Web App is extracted from a dataset in Kaggle which contains information about homicide incidents.
 Link for dataset: https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset/data?select=anime-dataset-2023.csv
 
-Link for the OtakuViz app: 
+Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app/
 
 <h2>Table of Contents</h2> 
 1. Features <br />
