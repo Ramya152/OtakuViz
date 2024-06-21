@@ -15,8 +15,7 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
 5. Algorithms Description <br />
 6. Usage <br />
 7. Evaluation Metrics <br />
-8. Contributing <br />
-9. License <br />
+8. Ethical Concerns
 
 <h3>Features</h3> 
 <b>1. Data Visualization:</b> <br />
