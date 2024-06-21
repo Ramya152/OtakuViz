@@ -6,6 +6,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import streamlit as st
+import nltk
 from dotenv import load_dotenv
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
