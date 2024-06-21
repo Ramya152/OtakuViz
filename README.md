@@ -99,12 +99,15 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
 2. Choose a specific value for the selected parameter. <br />
 3. Select the plot type (Bar Plot, Line Plot, Pie Chart). <br />
 4. The application displays the plot based on your selections. <br />
+
 <b>Recommendation System</b> <br />
 1. Select genres and types for which you want recommendations. <br />
 2. The application provides a list of anime that match the selected criteria. <br />
+
 <b>Text-Based Recommendation</b><br />
 1. Select an anime from the dropdown menu.<br />
 2. The application provides a list of similar anime based on synopsis similarity.<br />
+
 <b>Score Prediction</b> <br />
 1. Enter values for Favorites, Members, Award Winning, Episodes, and Duration. <br />
 2. The application predicts and displays the expected score for the anime. <br />
