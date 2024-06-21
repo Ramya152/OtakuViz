@@ -84,6 +84,7 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
     * Anime synopses are preprocessed to remove punctuation, convert to lowercase, remove stopwords, and perform stemming.<br />
     * Vectorization using CountVectorizer to convert text into numerical vectors.<br />
     * Cosine similarity calculation to determine the similarity between the synopses vectors.<br />
+    <br />
     
 <b>Random Forest Regression</b><br />
 * Purpose: Used in the Score Prediction feature to predict anime scores based on attributes.<br />
