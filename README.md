@@ -13,11 +13,10 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
 3. Example Scenarios <br />
 4. Tools Used <br />
 5. Algorithms Description <br />
-6. Setup and Installation <br />
-7. Usage <br />
-8. Evaluation Metrics <br />
-9. Contributing <br />
-10. License <br />
+6. Usage <br />
+7. Evaluation Metrics <br />
+8. Contributing <br />
+9. License <br />
 
 <h3>Features</h3> 
 <b>1. Data Visualization:</b> <br />
