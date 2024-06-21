@@ -86,7 +86,7 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
     * Cosine similarity calculation to determine the similarity between the synopses vectors.<br />
     <br />
     
-<b>Random Forest Regression</b><br />
+<b>Random Forest Regression</b>
 * Purpose: Used in the Score Prediction feature to predict anime scores based on attributes.<br />
 * Implementation:<br />
     * Data preprocessing including one-hot encoding categorical variables and handling missing values.<br />
