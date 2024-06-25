@@ -21,13 +21,11 @@ Link for the OtakuViz app: https://otakuviz-x6ag4dpxsxapassa4ymw8h.streamlit.app
 <b>1. Data Visualization:</b> <br />
     * Visualize anime data by genre, type, status, source, and rating. <br />
     * Different plot types: bar plots, line plots, and pie charts. <br />
-<b>2. Additional Analysis:</b> <br />
-    * Insights and analysis on various aspects of anime data. <br />
-<b>3. Recommendation System:</b> <br />
+<b>2. Recommendation System:</b> <br />
     * Get anime recommendations based on selected genres and types. <br />
-<b>4. Text-Based Recommendation:</b> <br />
+<b>3. Text-Based Recommendation:</b> <br />
     * Find anime recommendations based on synopsis similarity using cosine similarity. <br />
-<b>5. Score Prediction:</b> <br />
+<b>4. Score Prediction:</b> <br />
     * Predict the score of an anime based on attributes like favorites, members, award-winning status, episodes, and duration. <br />
     
 <h3>Usefulness to Users and Stakeholders</h3>
