@@ -7,14 +7,12 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import streamlit as st
 from dotenv import load_dotenv
-import nltk 
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, mean_absolute_error
+import joblib
 import boto3
 from botocore.config import Config
 from PreprocessData import preprocess_data
@@ -23,10 +21,10 @@ from TextProcessing import string_cleaning
 from TextProcessing import preprocess_synopsis
 from TextProcessing import calculate_similarity
 
-nltk.download('stopwords')
-
 # Load environment variables
 load_dotenv()
+
+nltk.download('stopwords')
 
 # B2 class for Backblaze interaction
 class B2:
@@ -65,7 +63,6 @@ def preprocess_duration(df):
     df['Duration'].fillna(df['Duration'].median(), inplace=True)
     return df
 
-@st.cache_data
 def preprocess_for_modeling(df):
     df_model = df.copy()
     df_model['Award Winning'] = df_model['Award Winning'].apply(lambda x: 1 if x == 'Yes' else 0)
@@ -92,18 +89,18 @@ class OtakuVizApp:
         b2.set_bucket(os.environ['B2_BUCKETNAME'])
         df = b2.get_df(OtakuVizApp.REMOTE_DATA)
         df = preprocess_data(df)
-        df = preprocess_synopsis(df)
         df = preprocess_duration(df)
         similarities = calculate_similarity(df)
         df_model = preprocess_for_modeling(df)
-        X = df_model[['Favorites', 'Members', 'Award Winning', 'Episodes', 'Duration']]
+        X = df_model[['Favorites', 'Members', 'Popularity', 'Rank']]
         y = df_model['Score']
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        model = RandomForestRegressor(n_estimators=100, random_state=42)
-        model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
-        rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-        mae = mean_absolute_error(y_test, y_pred)
+        
+        # Load the pre-trained model
+        model = joblib.load('best_random_forest_model.pkl')
+        
+        y_pred = model.predict(X)
+        rmse = np.sqrt(mean_squared_error(y, y_pred))
+        mae = mean_absolute_error(y, y_pred)
         return df, similarities, model, rmse, mae
 
     def handle_error(self, error_message):
@@ -116,6 +113,8 @@ class OtakuVizApp:
 
         if page == "Data Visualization":
             self.data_visualization_page()
+        elif page == "Additional Analysis":
+            self.additional_analysis_page()
         elif page == "Recommendation":
             self.recommendation_page()
         elif page == "Text-Based Recommendation":
@@ -173,8 +172,8 @@ class OtakuVizApp:
 
         elif plot_type == "Pie Chart":
             plt.figure(figsize=(10, 6))
-            filtered_df[selected_value].value_counts().plot.pie(autopct='%1.1f%%')
-            plt.title(f"Distribution of {selected_value}")
+            filtered_df[selected_parameter].value_counts().plot.pie(autopct='%1.1f%%')
+            plt.title(f"Distribution of {selected_parameter}")
             st.pyplot(plt)
 
     def recommendation_page(self):
@@ -214,15 +213,13 @@ class OtakuVizApp:
         st.write("Predict the score of an anime based on its attributes.")
         favorites = st.number_input("Enter Favorites:", value=0)
         members = st.number_input("Enter Members:", value=0)
-        award_winning = st.selectbox("Award Winning:", options=[0, 1])  # 0 for No, 1 for Yes
-        episodes = st.number_input("Enter Episodes:", value=0)
-        duration = st.number_input("Enter Duration (in minutes):", value=0)
+        popularity = st.number_input("Enter Popularity:", value=0)
+        rank = st.number_input("Enter Rank:", value=0)
         input_data = pd.DataFrame({
             'Favorites': [favorites],
             'Members': [members],
-            'Award Winning': [award_winning],
-            'Episodes': [episodes],
-            'Duration': [duration]
+            'Popularity': [popularity],
+            'Rank': [rank]
         })
         predicted_score = self.model.predict(input_data)
         st.write(f"Predicted Score: {predicted_score[0]:.2f}")
