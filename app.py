@@ -16,10 +16,8 @@ import joblib
 import boto3
 from botocore.config import Config
 from PreprocessData import preprocess_data
-from TextProcessing import remove_punctuation_and_turn_lower
-from TextProcessing import string_cleaning
-from TextProcessing import preprocess_synopsis
-from TextProcessing import calculate_similarity
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+
 
 # Load environment variables
 load_dotenv()
@@ -74,7 +72,7 @@ class OtakuVizApp:
     REMOTE_DATA = 'anime-dataset-2023.csv'
 
     def __init__(self):
-        self.df, self.similarities, self.model, self.rmse, self.mae = self.load_data()
+        self.df, self.model, self.rmse, self.mae = self.load_data()
         if "report_index" not in st.session_state:
             st.session_state.report_index = 0
 
@@ -90,7 +88,6 @@ class OtakuVizApp:
         df = b2.get_df(OtakuVizApp.REMOTE_DATA)
         df = preprocess_data(df)
         df = preprocess_duration(df)
-        similarities = calculate_similarity(df)
         df_model = preprocess_for_modeling(df)
         X = df_model[['Favorites', 'Members', 'Popularity', 'Rank']]
         y = df_model['Score']
@@ -101,7 +98,7 @@ class OtakuVizApp:
         y_pred = model.predict(X)
         rmse = np.sqrt(mean_squared_error(y, y_pred))
         mae = mean_absolute_error(y, y_pred)
-        return df, similarities, model, rmse, mae
+        return df, model, rmse, mae
 
     def handle_error(self, error_message):
         st.error(f"An error occurred: {error_message}")
@@ -195,18 +192,6 @@ class OtakuVizApp:
             recommended_anime = self.df[self.df['Genres'].apply(lambda x: all(genre in x for genre in genre_choice)) & (self.df['Type'] == type_choice)]
             st.write(recommended_anime[['Name', 'Genres', 'Type', 'Score']])
 
-
-    def text_based_recommendation_page(self):
-        st.header("Text-Based Recommendation")
-        st.write("Get anime recommendations based on synopsis similarity.")
-        anime_list = self.df['Name'].unique()
-        selected_anime = st.selectbox("Select an Anime:", anime_list)
-
-        if selected_anime:
-            recommendations = get_anime_recommendation(self.df, self.similarities, selected_anime)
-            recommended_anime_names = [self.df.iloc[rec[0]]['Name'] for rec in recommendations]
-            st.write("Recommended Animes:")
-            st.write(recommended_anime_names)
 
     def score_prediction_page(self):
         st.header("Anime Score Prediction")
